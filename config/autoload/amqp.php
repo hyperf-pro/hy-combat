@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 /**
- * This file is part of Hyperf.
+ * This file is part of hy.
  *
- * @link     https://www.hyperf.io
- * @document https://hyperf.wiki
- * @contact  group@hyperf.io
- * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ * @link     https://www.yy.io
+ * @document https://yy.wiki
+ * @contact  group@yy.io
+ * @license  https://github.com/yyforeveryl
  */
 return [
     'default' => [
         'host' => env('AMQP_HOST', 'localhost'),
         'port' => (int) env('AMQP_PORT', 5672),
-        'user' => env('AMQP_USER', 'guest'),
-        'password' => env('AMQP_PASSWORD', 'guest'),
+        'user' => env('AMQP_USER', 'admin'),
+        'password' => env('AMQP_PASSWORD', '123456'),
         'vhost' => env('AMQP_VHOST', '/'),
         'concurrent' => [
             'limit' => 1,
