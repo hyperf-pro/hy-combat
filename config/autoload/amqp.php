@@ -20,7 +20,7 @@ return [
             'limit' => 1,
         ],
         'pool' => [
-            'connections' => 2,
+            'connections' => 5,
         ],
         'params' => [
             'insist' => false,
