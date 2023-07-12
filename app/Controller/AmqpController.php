@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Amqp\Producer\ConfirmProducer;
 use App\Amqp\Producer\DebugProducer;
 use App\Amqp\Producer\DelayDirectProducer;
 use App\Amqp\Producer\DelayFanoutProducer;
@@ -29,7 +30,20 @@ class AmqpController extends AbstractController
     #[GetMapping(path: 'index')]
     public function index(): ResponseInterface
     {
-        $res = di()->get(Producer::class)->produce(new DebugProducer(['id' => 1]));
+        $res = di()->get(Producer::class)->produce(new DebugProducer(['id' => 1]), true);
+        var_dump(21111111111, $res);
+
+        return $this->response->success();
+    }
+
+    /**
+     * @throws Throwable
+     */
+    #[GetMapping(path: 'back-exchange')]
+    public function backExchange(): ResponseInterface
+    {
+        $res = di()->get(Producer::class)->produce(new ConfirmProducer(['id' => 1475555]));
+        //        var_dump('back exchange res:', $res);
 
         return $this->response->success();
     }
