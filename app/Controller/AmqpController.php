@@ -9,9 +9,11 @@ declare(strict_types=1);
  * @contact  group@yy.io
  * @license  https://github.com/yyforeveryl
  */
+
 namespace App\Controller;
 
 use App\Amqp\Producer\ConfirmProducer;
+use App\Amqp\Producer\DebugDeadProducer;
 use App\Amqp\Producer\DebugProducer;
 use App\Amqp\Producer\DelayDirectProducer;
 use App\Amqp\Producer\DelayFanoutProducer;
@@ -43,6 +45,25 @@ class AmqpController extends AbstractController
     public function backExchange(): ResponseInterface
     {
         $res = di()->get(Producer::class)->produce(new ConfirmProducer(['id' => 1475555]));
+        //        var_dump('back exchange res:', $res);
+
+        return $this->response->success();
+    }
+
+    /**
+     * 死信队列.
+     * @throws Throwable
+     */
+    #[GetMapping(path: 'dead-letter')]
+    public function deadLetter(): ResponseInterface
+    {
+        $res = di()->get(Producer::class)->produce(new DebugDeadProducer(
+            ['name' => 'debug dead letter:' . microtime(true)],
+            [
+                // ms
+                'expiration' => 5000,
+            ]
+        ));
         //        var_dump('back exchange res:', $res);
 
         return $this->response->success();
