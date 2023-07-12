@@ -16,7 +16,7 @@ use Hyperf\Amqp\Message\ConsumerMessage;
 use Hyperf\Amqp\Result;
 use PhpAmqpLib\Message\AMQPMessage;
 
-#[Consumer(exchange: 'debug-ex1', routingKey: 'debug-routing1', queue: 'debug-queue1', name: 'DebugConsumer', nums: 1)]
+#[Consumer(exchange: 'debug-ex1', routingKey: 'debug-routing1', queue: 'debug-queue1', name: 'DebugConsumer', nums: 1, enable: false)]
 class DebugConsumer extends ConsumerMessage
 {
     public function consumeMessage($data, AMQPMessage $message): string

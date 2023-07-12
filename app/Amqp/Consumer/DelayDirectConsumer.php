@@ -19,7 +19,7 @@ use Hyperf\Amqp\Message\Type;
 use Hyperf\Amqp\Result;
 use PhpAmqpLib\Message\AMQPMessage;
 
-#[Consumer(name: 'DelayDirectConsumer', nums: 1)]
+#[Consumer(name: 'DelayDirectConsumer', nums: 1, enable: false)]
 class DelayDirectConsumer extends ConsumerMessage
 {
     use ProducerDelayedMessageTrait;
