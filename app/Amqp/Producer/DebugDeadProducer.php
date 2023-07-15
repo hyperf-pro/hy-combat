@@ -23,7 +23,7 @@ class DebugDeadProducer extends ProducerMessage
         $this->payload = $data;
         $this->properties = $properties + [
             'content_type' => 'text/plain',
-            'delivery_mode' => Constants::DELIVERY_MODE_PERSISTENT,
+            'delivery_mode' => Constants::DELIVERY_MODE_PERSISTENT, // 持久化message
         ];
     }
 }
