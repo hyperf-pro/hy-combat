@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 /**
- * This file is part of Hyperf.
+ * This file is part of hy.
  *
- * @link     https://www.hyperf.io
- * @document https://hyperf.wiki
- * @contact  group@hyperf.io
- * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ * @link     https://www.yy.io
+ * @document https://yy.wiki
+ * @contact  group@yy.io
+ * @license  https://github.com/yyforeveryl
  */
 return [
+    \Hyperf\Kafka\ConsumerManager::class => \App\Kafka\CusConsumerManager::class,
 ];
