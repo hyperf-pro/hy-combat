@@ -27,7 +27,7 @@ return [
         'producer_epoch' => -1,
         'partition_leader_epoch' => -1,
         'interval' => 0,
-        'session_timeout' => 60,  // 如果超时后没有收到心跳信号，则协调器会认为该用户死亡。（单位：秒，支持小数）
+        'session_timeout' => 60,  // 如果超时后没有收到心跳信号，则协调器会认为该消费者死亡。（单位：秒，支持小数）
         'rebalance_timeout' => 60,
         'replica_id' => -1,
         'rack_id' => '',
